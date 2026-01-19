@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Niall Fitzgerald</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+        <link rel="shortcut icon" type="img/jpg" href="images/coding_icon.png">
+        <link rel="stylesheet" type="text/css" href="stylesheet/portfolio.css">
+    </head>
+
+    <body class="Background preload">
+
+        <!-- Navbar -->
+        <div class="Navbar">
+            <a class="active" href="#Home">Home</a>
+            <a href="#Slideshow">Slideshow</a>
+            <a href="#About">About</a>
+            <a href="#GitHub">GitHub</a>
+
+            <!-- Click opens & double click closes -->
+            <a class="contact" onclick="openForm()" ondblclick="closeForm()">Contact</a>
+        </div>
+
+        <!-- Background vid -->
+        <div id="Home">
+            <video autoplay muted loop id="Typing_Video">
+                <source src="images/video/matrix_540.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+
+        <!-- Vid text -->
+        <div class="Video_Text">
+            <h1 class="white-text">Niall's Portfolio</h1>
+            <strong>
+                <p class="center">
+                    <q>
+                        The people who are crazy enough to think they can change the world are the ones who do.
+                        
+                    </q>
+                    <br> - Steve Jobs
+                    <br><br>
+                    My name is Niall. Welcome to my portfolio website. 
+                    <br><br>
+                    Below, I will tell you about my background and experience.
+                    <br><br>
+                    Thank you for stopping by and enjoy!
+                </p>
+            </strong>
+        </div>
+
+        <!-- Slideshow -->
+        <div id="Slideshow">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/niall.jpg" alt="Personal photo">
+                        <div class="text">I'm ready to work with a team</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS and JS">
+                        <div class="text">I've got HTML, CSS and JavaScript</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/adobe.jpg" alt="Python logo">
+                        <div class="text">I'm a Adobe Creative Cloud professional</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/socials.jpg" alt="C# and .NET">
+                        <div class="text">A Social Media Hot Shot</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/google.jpg" alt="SQL and databases">
+                        <div class="text">A Google Workspace Professional</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/wordpress.jpg" alt="Contact">
+                        <div class="text">
+                            <a class="white-text contact" onclick="openForm()">...and a Wordpress magician!</a>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <br>
+
+                <!-- Dots -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="Row" id="About">
+            <div class="Column_2">
+                <img src="images/Square-Custom-Picture.jpg" alt="Profile image">
+            </div>
+
+            <div class="Column_1">
+                <h1>About</h1>
+                <p>
+                    I am a very experienced graphic designer - and now a budding developer! I'm a father, a travel enthusiast, and a music lover.
+                    <br><br>
+                    I am (almost) a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy's</a> Software Developer Training Programme, and I am gaining experience with the following web and programming languages: HTML, CSS and JavaScript. 
+                    <br><br>
+             
+                </p>
+            </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="Row" id="GitHub">
+            <div class="Column_1">
+                <h1>GitHub</h1>
+                <p class="center">
+                    <a href="https://github.com/niallfitzg/" target="_blank">View my GitHub</a>
+                </p>
+            </div>
+
+            <div class="Column_2">
+                <img src="images/GitHub.jpg" alt="GitHub logo">
+            </div>
+        </div>
+
+        <!-- Contact form -->
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container">
+                    <h1>Contact</h1>
+
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" id="email" name="_replyto" required>
+
+                    <label for="message"><b>Message</b></label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <input type="hidden" name="_subject" value="New Portfolio Contact">
+                    <input type="hidden" name="_template" value="table">
+
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+            <p class="center">
+                &copy Prosper Consulting Inc., 
+                <a href="https://www.learncodinganywhere.com/" target="_blank">The Tech Academy</a>
+            </p>
+        </footer>
+
+        <script src="js/portfolio.js"></script>
+    </body>
+</html>

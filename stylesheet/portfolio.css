@@ -1,0 +1,527 @@
+/* Smooth scrolling when clicking navbar anchors */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+    margin: 0;
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1.5vw;
+    letter-spacing: .2vw;
+    overflow-x: hidden;
+    user-select: none;
+
+    /* Fade-in when load */
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+/* Opacity */
+body.preload {
+    opacity: 0;
+}
+
+/* Headings */
+h1 {
+    margin-top: 3%;
+    text-align: center;
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+}
+
+/* HHeading hover effects*/
+h1:hover {
+    transform: scale(1.1);
+    transition: transform 1s;
+    filter: grayscale(5%);
+}
+
+/* White text in the hero */
+.white-text {
+    color: #fff;
+    padding-top: 10vh;
+}
+
+/* Paragraphs */
+p {
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    text-align: justify;
+    letter-spacing: .1vw;
+    font-size: 2.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+/* Tiny hover zoom on paragraphs */
+p:hover {
+    transform: scale(1.01);
+    transition: transform 1s;
+}
+
+/* Centre helper */
+.center {
+    text-align: center;
+}
+
+/* Only affects elements using .center */
+.center:hover {
+    transform: scale(1.1);
+    transition: transform 2s;
+}
+
+/* Links */
+a {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Quotes */
+q {
+    font-style: italic;
+}
+
+/* Images */
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    filter: grayscale(75%);
+}
+
+img:hover {
+    filter: grayscale(5%);
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    padding: 2%;
+}
+
+/*** NAV ***/
+
+.Navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+
+    background-color: black;
+    overflow: hidden;
+
+    animation: moveNav 5s;
+    -webkit-animation: moveNav 5s;
+}
+
+/* Navbar slide in from the left */
+@keyframes moveNav {
+    from { left: -100vw; }
+    to { left: 0vw; }
+}
+
+.Navbar a {
+    float: left;
+    display: block;
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+    padding: .75vw 1vw;
+    font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw;
+
+    position: relative;
+    animation: moveNavText 5.75s;
+    -webkit-animation: moveNavText 5.75s;
+}
+
+/* Navbar text drops in from above */
+@keyframes moveNavText {
+    from { top: -100vw; }
+    to { top: 0vw; }
+}
+
+.Navbar a:hover {
+    background-color: #f4f4f4;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.Navbar a.active {
+    background-color: darkgray;
+}
+
+/*** VIDEO / HERO ***/
+
+#Typing_Video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    min-width: 100%;
+}
+
+/* Hide video on small screens */
+@media screen and (max-width: 576px) {
+    #Typing_Video {
+        display: none;
+    }
+}
+
+.Video_Text {
+    width: 100%;
+    height: 100vh;
+    padding-top: 2vh;
+
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    position: relative;
+    animation: moveVideoText 5.75s;
+    -webkit-animation: moveVideoText 5.75s;
+}
+
+/* Overlay text moves in on load */
+@keyframes moveVideoText {
+    from { top: -100vw; }
+    to { top: 0vw; }
+}
+
+/*** SLIDESHOW ***/
+
+#Slideshow_Background {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Slides hidden by default, JS shows the active one */
+.mySlides {
+    display: none;
+}
+
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    margin: auto;
+    position: relative;
+}
+
+/* Removes underline on slideshow arrow links */
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+.Slideshow_Images {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+}
+
+.Previous,
+.Next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+
+    padding: 2vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: darkgray;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+.Next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.Previous:hover,
+.Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Caption text */
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    font-size: 1.5vw;
+
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 0px 0px 7px 7px;
+}
+
+
+/* Dots */
+.dot {
+    display: inline-block;
+    width: 1vw;
+    height: 1vw;
+
+    margin: .25vw;
+    border-radius: 50%;
+    background-color: white;
+
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active,
+.dot:hover {
+    background-color: black;
+}
+
+/* Fade anim */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
+}
+
+/**** TABLE STYLE LAYOUT ***/
+
+/* Universal box sizing  */
+* {
+    box-sizing: border-box;
+}
+
+.Column_1 {
+    float: left;
+    width: 50%;
+    height: 450px;
+    padding: 1.6%;
+    background-color: #f2f2f2;
+}
+
+.Column_2 {
+    float: left;
+    width: 50%;
+    height: 450px;
+    padding: 1.6%;
+    background-color: #4d4d4d;
+}
+
+/* Clear floats so the footer does not sit over the columns */
+.Row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*** CONTACT FORM ***/
+
+.Pop_Up_Button {
+    position: fixed;
+    right: 1.75vw;
+    bottom: 1.75vw;
+    width: 25vw;
+
+    background-color: white;
+    color: black;
+    border: solid black;
+
+    cursor: pointer;
+
+    animation: movePopup 5s;
+    -webkit-animation: movePopup 5s;
+}
+
+/* Button slides in from off-screen */
+@keyframes movePopup {
+    from { right: -40vw; }
+    to { right: 1.75vw; }
+}
+
+@-webkit-keyframes movePopup {
+    from { right: -40vw; }
+    to { right: 1.75vw; }
+}
+
+.form-popup {
+    position: fixed;
+    right: .5vw;
+    bottom: .5vw;
+
+    display: none;
+    z-index: 8;
+}
+
+.form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: white;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0;
+    border: none;
+    background: Gainsboro;
+    font-size: 1vw;
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 7em;
+}
+
+
+/* Generic button styling */
+button {
+    width: 100%;
+    height: auto;
+
+    padding: 1.5vw;
+
+    font-family: "Trebuchet MS", Optima;
+    font-size: 1.5vw;
+    font-weight: bold;
+    letter-spacing: .3vw;
+
+    cursor: pointer;
+}
+
+/* Hover effect shared by buttons */
+button:hover,
+.form-container .btn:hover {
+    background-color: black;
+    color: white;
+
+    border-color: silver;
+
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+}
+
+.form-container .btn {
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+.form-container .cancel:hover {
+    background-color: darkred;
+    color: white;
+    border-color: black;
+
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+}
+
+/***  MEDIA QUERIES ***/
+
+/* Paragraph sizing across breakpoints */
+@media screen and (max-width: 527px) {
+    p { font-size: 3.75vw; }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p { font-size: 3.5vw; }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p { font-size: 2.75vw; }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p { font-size: 2.5vw; }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p { font-size: 2.25vw; }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p { font-size: 2vw; }
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p { font-size: 1.75vw; }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p { font-size: 1.5vw; }
+}
+
+@media screen and (min-width: 2270px) {
+    p { font-size: 1.35vw; }
+}
+
+/* Navbar links spread out for smaller screens */
+@media screen and (max-width: 1080px) {
+    .Navbar a {
+        width: 20%;
+        font-size: 2.5vw;
+    }
+}
+
+/* White text sizing on smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote { font-size: 3.5vw; }
+    .white-text { font-size: 4.5vw; }
+}
+
+/* Taller columns on very large screens */
+@media screen and (min-width: 1725px) {
+    .Column_1 { height: 550px; }
+    .Column_2 { height: 550px; }
+}
+
+/* Reduce h1 top margin for extra large screens */
+@media screen and (min-width: 2000px) {
+    h1 { margin-top: 0; }
+}
